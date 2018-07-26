@@ -17,9 +17,9 @@ import java.util.regex.Pattern;
 public class SignUpViewModel extends BaseObservable {
 
 
-    private String name;
-    private String email;
-    private String password;
+    private String name="";
+    private String email="";
+    private String password="";
 
 
 
@@ -133,7 +133,7 @@ public class SignUpViewModel extends BaseObservable {
         notifyPropertyChanged(com.task.test.BR.errorPassword);
     }
 
-    private String confirm_pass;
+    private String confirm_pass="";
 
     //  Constructor
 

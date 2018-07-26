@@ -34,24 +34,52 @@ Realm realm;
 
                User user = realm.where(User.class).equalTo("email", binding.getSignup().getEmail()).findFirst();
 
-               if(user.getEmail().equals(binding.getSignup().getEmail()))
+               if(user!=null)
                {
-                   showMessage("Already Email exists");
-           }else
+                   if(user.getEmail().equals(binding.getSignup().getEmail()))
+                   {
+                       showMessage("Already Email exists");
+                   }else
+                   {
+
+                       if(!binding.getSignup().getEmail().isEmpty() && !binding.getSignup().getPassword().isEmpty() && !binding.getSignup().getConfirm_pass().isEmpty() )
+                       {
+                           User value=new User();
+                           value.setName(binding.getSignup().getName());
+                           value.setEmail(binding.getSignup().getEmail());
+                           value.setPassword(binding.getSignup().getPassword());
+                           value.setConfirm_pass(binding.getSignup().getConfirm_pass());
+
+                           realm.beginTransaction();
+                           realm.copyToRealm(value);
+                           realm.commitTransaction();
+
+                           showMessage("SignUp Successfull");
+                           finish();
+                       }else
+                       {
+                           showMessage("Please fill all fields");
+                       }
+
+
+                   }
+
+               }else
                {
+                   if(!binding.getSignup().getEmail().isEmpty() && !binding.getSignup().getPassword().isEmpty() && !binding.getSignup().getConfirm_pass().isEmpty() ) {
+                       User value = new User();
+                       value.setName(binding.getSignup().getName());
+                       value.setEmail(binding.getSignup().getEmail());
+                       value.setPassword(binding.getSignup().getPassword());
+                       value.setConfirm_pass(binding.getSignup().getConfirm_pass());
 
-                   User value=new User();
-                   value.setName(binding.getSignup().getName());
-                   value.setEmail(binding.getSignup().getEmail());
-                   value.setPassword(binding.getSignup().getPassword());
-                   value.setConfirm_pass(binding.getSignup().getConfirm_pass());
+                       realm.beginTransaction();
+                       realm.copyToRealm(value);
+                       realm.commitTransaction();
 
-                   realm.beginTransaction();
-                   realm.copyToRealm(value);
-                   realm.commitTransaction();
-
-                   showMessage("SignUp Successfull");
-                   finish();
+                       showMessage("SignUp Successfull");
+                       finish();
+                   }
                }
 
 

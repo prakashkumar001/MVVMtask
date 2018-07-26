@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
+import com.task.test.pojo.LogIn;
 import com.task.test.pojo.User;
 import com.task.test.signup.SignUpViewModel;
 
@@ -73,10 +74,15 @@ public class RealmController {
         realm.commitTransaction();
     }*/
     //find all objects in the Book.class
-    public RealmResults<User> getRootObjects() {
+    public RealmResults<LogIn> getLogin() {
 
-        return realm.where(User.class).findAll();
+        return realm.where(LogIn.class).findAll();
     }
 
+    public void clearAllComments() {
 
+        realm.beginTransaction();
+        realm.delete(LogIn.class);
+        realm.commitTransaction();
+    }
 }

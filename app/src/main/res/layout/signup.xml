@@ -17,6 +17,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:gravity="center"
+    android:layout_margin="10dp"
     android:tag="layout/signup_1"
     android:layout_height="match_parent">
 
@@ -32,7 +33,7 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter name"
         android:text="@={signup.name}"
@@ -40,7 +41,7 @@
         />
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter email"
         android:text="@={signup.email}"
@@ -50,7 +51,7 @@
         />
     <EditText
         android:id="@+id/password"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter password"
         android:text="@={signup.password}"
@@ -60,7 +61,7 @@
         />
     <EditText
         android:id="@+id/confirm_pass"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Confirm Password"
         android:text="@={signup.confirm_pass}"

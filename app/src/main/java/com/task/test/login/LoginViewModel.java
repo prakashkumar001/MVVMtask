@@ -29,8 +29,8 @@ public class LoginViewModel extends BaseObservable {
     }
 
     //Data of edittexts you require for data saving.
-    private String userEmail;
-    private String userPassword;
+    private String userEmail="";
+    private String userPassword="";
 
 
      // Setting texts of forgot password link and
