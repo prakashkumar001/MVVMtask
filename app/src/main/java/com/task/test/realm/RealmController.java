@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
+import com.task.test.pojo.User;
 import com.task.test.signup.SignUpViewModel;
 
 import io.realm.Realm;
@@ -60,7 +61,7 @@ public class RealmController {
  
     /*//clear all objects from Book.class
     public void clearAll() {
- 
+
         realm.beginTransaction();
         realm.delete(RootObject.class);
         realm.commitTransaction();
@@ -72,27 +73,10 @@ public class RealmController {
         realm.commitTransaction();
     }*/
     //find all objects in the Book.class
-    public RealmResults<SignUpViewModel> getRootObjects() {
- 
-        return realm.where(SignUpViewModel.class).findAll();
-    }
- 
-    //query a single item with the given id
-    public RootObject getRootObject(String id) {
- 
-        return realm.where(RootObject.class).equalTo("id", id).findFirst();
-    }
- 
+    public RealmResults<User> getRootObjects() {
 
- 
-    //query example
-    public RealmResults<RootObject> queryedRootObject() {
- 
-        return realm.where(RootObject.class)
-                .contains("author", "Author 0")
-                .or()
-                .contains("title", "Realm")
-                .findAll();
- 
+        return realm.where(User.class).findAll();
     }
+
+
 }

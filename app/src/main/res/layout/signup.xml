@@ -2,26 +2,31 @@
 
 
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
+<data>
 
 
-        <variable
-            name="signup"
-            type="com.task.test.signup.SignUpViewModel"/>
-        <!--Lets associate one more Variable with this XML-->
-        <variable
-            name="ModelClickListener"
-            type="com.task.test.ClickEvent.ClickListener"/>
+    <variable
+        name="signup"
+        type="com.task.test.signup.SignUpViewModel"/>
+    <!--Lets associate one more Variable with this XML-->
+    <variable
+        name="ModelClickListener"
+        type="com.task.test.ClickEvent.ClickListener"/>
 
-    </data>
+</data>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center"
+    android:tag="layout/signup_1"
     android:layout_height="match_parent">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="Create an Account"
         />
 
@@ -29,7 +34,7 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:hint="Enter name"
         android:text="@={signup.name}"
         android:ems="10"
         />
@@ -37,6 +42,7 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="Enter email"
         android:text="@={signup.email}"
         app:error="@{signup.errorEmail}"
 
@@ -46,15 +52,19 @@
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="Enter password"
         android:text="@={signup.password}"
 
+        app:error="@{signup.errorPassword}"
         android:ems="10"
         />
     <EditText
         android:id="@+id/confirm_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="Enter Confirm Password"
         android:text="@={signup.confirm_pass}"
+
 
         android:ems="10"
         />
@@ -65,7 +75,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:onClick="@{(v)->ModelClickListener.onClick()}"
-        android:text="@{signup.submitText}"        />
+        android:text="@={signup.submitText}"
+              />
 
 
 </LinearLayout>

@@ -20,7 +20,15 @@ public class LoginViewModel extends BaseObservable {
     public String passwordHint;
     private String emailHint;
 
-     //Data of edittexts you require for data saving.
+    public void setErrorPassword(String errorPassword) {
+        this.errorPassword = errorPassword;
+    }
+
+    public void setErrorEmail(String errorEmail) {
+        this.errorEmail = errorEmail;
+    }
+
+    //Data of edittexts you require for data saving.
     private String userEmail;
     private String userPassword;
 
