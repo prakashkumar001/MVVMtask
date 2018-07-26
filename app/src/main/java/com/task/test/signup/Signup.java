@@ -63,6 +63,6 @@ Realm realm;
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(Signup.this,message,Toast.LENGTH_SHORT);
+        Toast.makeText(Signup.this,message,Toast.LENGTH_SHORT).show();
     }
 }
